@@ -135,4 +135,12 @@ public class TileUtils {
             && context.getResources().getConfiguration().orientation 
             != Configuration.ORIENTATION_LANDSCAPE;
    }
+   
+   
+   public static boolean canShowSplitShade(Context context) {
+    return Settings.System.getIntForUser(context.getContentResolver(), 
+        "qs_split_shade_enabled",0, UserHandle.USER_CURRENT) != 0
+        && context.getResources().getConfiguration().orientation 
+        == Configuration.ORIENTATION_LANDSCAPE;
+    }
 }
